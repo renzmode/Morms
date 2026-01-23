@@ -3004,6 +3004,451 @@
 }
 
 
+    /* ANIMATIONS */
+    @keyframes pulseDot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.7; transform: scale(1.1); }
+    }
+    
+    @keyframes rotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+    
+    @keyframes pulseIcon {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+    }
+    
+    @keyframes orbit {
+        0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+        100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+    }
+    
+    @keyframes pulseRing {
+        0% { transform: scale(0.8); opacity: 0.8; }
+        100% { transform: scale(1.5); opacity: 0; }
+    }
+    
+    /* ORBITING DOTS */
+    .orbit-dot {
+        position: absolute;
+        width: var(--size);
+        height: var(--size);
+        background: var(--color);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: orbit 3s linear infinite var(--delay);
+    }
+    
+    /* MODERN TIMELINE */
+    .roadmap-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 25px;
+        margin-bottom: 40px;
+        position: relative;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    .roadmap-item:hover {
+        transform: translateX(10px);
+    }
+    
+    .timeline-marker {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0 0 4px white, 0 0 0 6px currentColor;
+        margin-top: 8px;
+    }
+    
+    .pulse-ring {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: inherit;
+        animation: pulseRing 2s ease-out infinite;
+    }
+    
+    .roadmap-content {
+        flex: 1;
+        background: white;
+        padding: 25px;
+        border-radius: 16px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        border: 1px solid rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+    }
+    
+    .roadmap-item:hover .roadmap-content {
+        box-shadow: 0 10px 30px rgba(5, 126, 187, 0.15);
+        border-color: rgba(5, 126, 187, 0.2);
+    }
+    
+    .roadmap-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .roadmap-phase {
+        background: linear-gradient(135deg, #057EBB, #1a6bc4);
+        color: white;
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    
+    .roadmap-date {
+        color: #666;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+    
+    .roadmap-content h4 {
+        color: #333;
+        margin: 0 0 10px;
+        font-size: 1.3rem;
+        font-weight: 700;
+    }
+    
+    .roadmap-content p {
+        color: #666;
+        margin: 0 0 15px;
+        line-height: 1.6;
+    }
+    
+    .roadmap-tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    
+    .roadmap-tag {
+        padding: 5px 12px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 500;
+    }
+    
+    /* MODERN BUTTONS */
+    .modern-btn {
+        padding: 14px 28px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition: all 0.3s ease;
+        border: none;
+        outline: none;
+    }
+    
+    .modern-btn.primary {
+        background: linear-gradient(135deg, #057EBB, #1a6bc4);
+        color: white;
+        box-shadow: 0 8px 25px rgba(5, 126, 187, 0.3);
+    }
+    
+    .modern-btn.primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 35px rgba(5, 126, 187, 0.4);
+    }
+    
+    .modern-btn.secondary {
+        background: white;
+        color: #057EBB;
+        border: 2px solid rgba(5, 126, 187, 0.2);
+    }
+    
+    .modern-btn.secondary:hover {
+        background: rgba(5, 126, 187, 0.05);
+        border-color: rgba(5, 126, 187, 0.4);
+        transform: translateY(-2px);
+    }
+    
+    .modern-btn.secondary-light {
+        background: rgba(255,255,255,0.2);
+        color: white;
+        border: 2px solid rgba(255,255,255,0.3);
+        backdrop-filter: blur(10px);
+    }
+    
+    .modern-btn.secondary-light:hover {
+        background: rgba(255,255,255,0.3);
+        transform: translateY(-2px);
+    }
+    
+    .modern-btn.ghost {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255,255,255,0.4);
+    }
+    
+    .modern-btn.ghost:hover {
+        background: rgba(255,255,255,0.1);
+        transform: translateY(-2px);
+    }
+    
+    /* PROMOTION GRID */
+    .promotion-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+    
+    .promo-card-modern {
+        background: white;
+        border-radius: 16px;
+        padding: 30px;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0,0,0,0.05);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .promo-card-modern:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(5, 126, 187, 0.15);
+        border-color: rgba(5, 126, 187, 0.2);
+    }
+    
+    .promo-card-modern::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #057EBB, #2a7bd4);
+    }
+    
+    .promo-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 1.5rem;
+    }
+    
+    .promo-card-modern h4 {
+        color: #333;
+        margin: 0 0 10px;
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+    
+    .promo-card-modern p {
+        color: #666;
+        margin: 0 0 20px;
+        line-height: 1.5;
+        font-size: 0.95rem;
+    }
+    
+    .promo-stats {
+        display: flex;
+        gap: 15px;
+        color: #666;
+        font-size: 0.85rem;
+    }
+    
+    .promo-stats span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    /* MODERN MODAL */
+    .modern-modal-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        backdrop-filter: blur(10px);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+    
+    .modern-modal {
+        background: white;
+        border-radius: 24px;
+        max-width: 700px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        animation: modalSlideUp 0.4s ease;
+    }
+    
+    @keyframes modalSlideUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .modal-header {
+        padding: 25px 30px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .modal-header h3 {
+        margin: 0;
+        color: #333;
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+    
+    .modal-close {
+        background: none;
+        border: none;
+        font-size: 2rem;
+        color: #666;
+        cursor: pointer;
+        line-height: 1;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s;
+    }
+    
+    .modal-close:hover {
+        background: rgba(0,0,0,0.05);
+        color: #333;
+    }
+    
+    .modal-body {
+        padding: 30px;
+    }
+    
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+        .roadmap-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .timeline-marker {
+            margin-left: 21px;
+        }
+        
+        .roadmap-content {
+            width: 100%;
+        }
+        
+        .promotion-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .modern-btn {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .section-badge {
+            font-size: 0.8rem;
+        }
+        
+        h2 {
+            font-size: 2.2rem !important;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .modern-section {
+            padding: 20px !important;
+        }
+        
+        .roadmap-content {
+            padding: 20px;
+        }
+        
+        .modal-header,
+        .modal-body {
+            padding: 20px;
+        }
+    }
+    /* OPTIMIZE IAMTHECODE SECTION - Add to your existing CSS */
+#codeSection .floating-element {
+  display: none !important; /* Remove floating background elements */
+}
+
+#codeSection .floating-cards {
+  animation: none !important; /* Remove animations from cards */
+  transform: none !important;
+}
+
+#codeSection .floating-card:hover {
+  transform: translateY(-5px) !important; /* Simplify hover effect */
+}
+
+#codeSection .orbit-dot,
+#codeSection .pulse-ring {
+  display: none !important; /* Remove heavy orbiting animations */
+}
+
+/* Simplify gallery animations */
+#codeSection .gallery-track {
+  animation-duration: 60s !important; /* Slower but smoother */
+}
+
+#codeSection .gallery-item {
+  width: 400px !important; /* Smaller images for mobile */
+}
+
+/* Reduce shadow complexity */
+#codeSection .modern-section {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+}
+
+/* Simplify timeline animations */
+#codeSection .roadmap-item {
+  transition: transform 0.2s ease !important;
+}
+
+#codeSection .timeline-marker .pulse-ring {
+  animation: none !important;
+}
+
+
+
+
+
 
 
 
@@ -3366,68 +3811,6 @@
                 </div>
             </div>
             <!-- Add this before or after the gallery -->
-<div class="modern-section" style="margin-top: 40px; background: linear-gradient(135deg, rgba(128, 0, 0, 0.08), rgba(107, 175, 146, 0.08));">
-    <div class="section-badge">
-        <i class="fas fa-star"></i> DID YOU KNOW?
-    </div>
-    
-    <h2 style="text-align: center; color: var(--theme-color); margin-bottom: 40px; font-size: 2.2rem;">
-        Tap to Discover MORMS Secrets!
-    </h2>
-    
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-        <!-- Fact 1 -->
-        <div class="fact-card" onclick="revealFact(this, 1)" style="background: white; border-radius: 20px; padding: 25px; text-align: center; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.4s ease; position: relative; overflow: hidden; min-height: 200px; display: flex; flex-direction: column; justify-content: center;">
-            <div class="fact-icon" style="font-size: 3rem; color: var(--theme-color); margin-bottom: 20px;">
-                <i class="fas fa-question-circle"></i>
-            </div>
-            <h3 style="color: #333; margin-bottom: 15px;">Tap Me!</h3>
-            <p class="fact-hidden" style="color: #666; font-size: 0.95rem; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
-                <strong>🌿 Nature Campus:</strong> 70% of our school grounds are green spaces with gardens and trees!
-            </p>
-        </div>
-
-        <!-- Fact 2 -->
-        <div class="fact-card" onclick="revealFact(this, 2)" style="background: white; border-radius: 20px; padding: 25px; text-align: center; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.4s ease; position: relative; overflow: hidden; min-height: 200px; display: flex; flex-direction: column; justify-content: center;">
-            <div class="fact-icon" style="font-size: 3rem; color: #057EBB; margin-bottom: 20px;">
-                <i class="fas fa-lightbulb"></i>
-            </div>
-            <h3 style="color: #333; margin-bottom: 15px;">Tap Me!</h3>
-            <p class="fact-hidden" style="color: #666; font-size: 0.95rem; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
-                <strong>💻 Tech Gardeners:</strong> Our coding students also help maintain the school garden!
-            </p>
-        </div>
-
-        <!-- Fact 3 -->
-        <div class="fact-card" onclick="revealFact(this, 3)" style="background: white; border-radius: 20px; padding: 25px; text-align: center; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.4s ease; position: relative; overflow: hidden; min-height: 200px; display: flex; flex-direction: column; justify-content: center;">
-            <div class="fact-icon" style="font-size: 3rem; color: #4a785c; margin-bottom: 20px;">
-                <i class="fas fa-seedling"></i>
-            </div>
-            <h3 style="color: #333; margin-bottom: 15px;">Tap Me!</h3>
-            <p class="fact-hidden" style="color: #666; font-size: 0.95rem; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
-                <strong>🥗 Farm to Table:</strong> Vegetables from our garden go straight to student meals!
-            </p>
-        </div>
-
-        <!-- Fact 4 -->
-        <div class="fact-card" onclick="revealFact(this, 4)" style="background: white; border-radius: 20px; padding: 25px; text-align: center; cursor: pointer; box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.4s ease; position: relative; overflow: hidden; min-height: 200px; display: flex; flex-direction: column; justify-content: center;">
-            <div class="fact-icon" style="font-size: 3rem; color: #800000; margin-bottom: 20px;">
-                <i class="fas fa-users"></i>
-            </div>
-            <h3 style="color: #333; margin-bottom: 15px;">Tap Me!</h3>
-            <p class="fact-hidden" style="color: #666; font-size: 0.95rem; opacity: 0; transform: translateY(20px); transition: all 0.5s ease;">
-                <strong>👥 Community Hub:</strong> Every student participates in at least 2 green initiatives!
-            </p>
-        </div>
-    </div>
-    
-    <!-- Reset Button -->
-    <div style="text-align: center; margin-top: 30px;">
-        <button onclick="resetAllFacts()" style="background: transparent; color: var(--theme-color); border: 2px solid var(--theme-color); padding: 10px 25px; border-radius: 25px; font-weight: 600; cursor: pointer; transition: all 0.3s;">
-            <i class="fas fa-redo"></i> Reset All Facts
-        </button>
-    </div>
-</div>
 
 
 
@@ -3678,6 +4061,268 @@
     </div>
   </div>
 </div>
+<!-- ============================================= -->
+<!-- MODERN FUTURE PLANS & PROMOTION SECTION -->
+<!-- ============================================= -->
+<div class="modern-section" style="margin-top: 50px; background: transparent; padding: 0;">
+    
+    <!-- SECTION HEADER WITH GLASS EFFECT -->
+    <div style="background: linear-gradient(135deg, rgba(5, 126, 187, 0.15) 0%, rgba(5, 126, 187, 0.05) 100%); backdrop-filter: blur(20px); border-radius: 24px; padding: 50px 40px; border: 1px solid rgba(255, 255, 255, 0.3); box-shadow: 0 20px 60px rgba(5, 126, 187, 0.15); margin-bottom: 40px;">
+        <div class="section-badge" style="background: linear-gradient(135deg, #057EBB, #2a7bd4); border: none; font-size: 0.9rem; letter-spacing: 1px;">
+            <i class="fas fa-rocket"></i> FUTURE VISION
+        </div>
+        
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 30px; margin-top: 25px;">
+            <div style="flex: 1; min-width: 300px;">
+                <h2 style="color: #057EBB; font-size: 3rem; margin: 0 0 15px; font-weight: 800; line-height: 1.1; text-shadow: 0 2px 10px rgba(5, 126, 187, 0.2);">
+                    Building the<br>
+                    <span style="background: linear-gradient(135deg, #057EBB, #2a7bd4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Next Chapter</span>
+                </h2>
+                <p style="color: #666; font-size: 1.2rem; line-height: 1.6; max-width: 600px; margin-bottom: 25px;">
+                    Expanding digital literacy and creating a sustainable coding ecosystem at MORMS.
+                </p>
+                
+                <!-- STATS BADGES -->
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.9); padding: 8px 16px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                        <div style="width: 8px; height: 8px; background: #057EBB; border-radius: 50%; animation: pulseDot 2s infinite;"></div>
+                        <span style="font-weight: 600; color: #333;">Target: 120+ Students</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.9); padding: 8px 16px; border-radius: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
+                        <div style="width: 8px; height: 8px; background: #2a7bd4; border-radius: 50%; animation: pulseDot 2s infinite 0.5s;"></div>
+                        <span style="font-weight: 600; color: #333;">3 New Specializations</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ANIMATED ICON -->
+            <div style="flex-shrink: 0;">
+                <div style="width: 120px; height: 120px; background: linear-gradient(135deg, rgba(5, 126, 187, 0.1), rgba(42, 123, 212, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, rgba(5, 126, 187, 0.2), rgba(42, 123, 212, 0.2)); border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: rotate 20s linear infinite;">
+                        <i class="fas fa-code" style="font-size: 3rem; color: #057EBB; animation: pulseIcon 3s ease-in-out infinite;"></i>
+                    </div>
+                    
+                    <!-- ORBITING DOTS -->
+                    <div class="orbit-dot" style="--delay: 0s; --size: 6px; --color: #057EBB;"></div>
+                    <div class="orbit-dot" style="--delay: 0.5s; --size: 8px; --color: #2a7bd4;"></div>
+                    <div class="orbit-dot" style="--delay: 1s; --size: 6px; --color: #3a8be4;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODERN TIMELINE - FUTURE ROADMAP -->
+    <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 15px 50px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); margin-bottom: 40px;">
+        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 40px;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #057EBB, #1a6bc4); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem;">
+                <i class="fas fa-road"></i>
+            </div>
+            <h3 style="color: #333; margin: 0; font-size: 1.8rem; font-weight: 700;">Strategic Roadmap of iamtheCODE</h3>
+        </div>
+
+        <!-- MODERN TIMELINE -->
+        <div style="position: relative; padding: 20px 0;">
+            <!-- TIMELINE LINE -->
+            <div style="position: absolute; left: 50px; top: 0; bottom: 0; width: 3px; background: linear-gradient(to bottom, rgba(5, 126, 187, 0.2), rgba(5, 126, 187, 0.4), rgba(5, 126, 187, 0.2));"></div>
+            
+            <!-- TIMELINE ITEMS -->
+            <div class="roadmap-item" onclick="showRoadmapDetail(1)">
+                <div class="timeline-marker" style="background: #057EBB;">
+                    <div class="pulse-ring"></div>
+                </div>
+                <div class="roadmap-content">
+                    <div class="roadmap-header">
+                        <span class="roadmap-phase">Phase 1</span>
+                        <span class="roadmap-date">Q2 2025</span>
+                    </div>
+                    <h4>Advanced Tech Training</h4>
+                    <p>The program will offer more advanced courses in coding, cybersecurity, and data analytics. This will help students gain in-demand digital skills. It will prepare them for future technology careers.</p>
+                    <div class="roadmap-tags">
+                        <span class="roadmap-tag" style="background: rgba(5, 126, 187, 0.1); color: #057EBB;">Skill Upgrading</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="roadmap-item" onclick="showRoadmapDetail(2)">
+                <div class="timeline-marker" style="background: #1a6bc4;">
+                    <div class="pulse-ring" style="animation-delay: 0.5s;"></div>
+                </div>
+                <div class="roadmap-content">
+                    <div class="roadmap-header">
+                        <span class="roadmap-phase">Phase 2</span>
+                       
+                    </div>
+                    <h4> Industry Partnerships</h4>
+                   
+                    <p>IAmTheCode will partner with tech companies and schools. This will give students real-world projects, internships, and mentoring. Learners will better understand how technology is used in jobs</p>
+                    <div class="roadmap-tags">
+                        <span class="roadmap-tag" style="background: rgba(42, 123, 212, 0.1); color: #2a7bd4;">Career Exposure </span>
+                       
+                    </div>
+                </div>
+            </div>
+
+            <div class="roadmap-item" onclick="showRoadmapDetail(3)">
+                <div class="timeline-marker" style="background: #2a7bd4;">
+                    <div class="pulse-ring" style="animation-delay: 1s;"></div>
+                </div>
+                <div class="roadmap-content">
+                    <div class="roadmap-header">
+                        <span class="roadmap-phase">Phase 3</span>
+                       
+                    </div>
+                    <h4>Global Online Learning Platform</h4>
+                    <p>The program will expand its online system so students can learn anytime, anywhere. More interactive lessons, videos, and quizzes will be added. This will support students who cannot attend face-to-face classes.
+</p>
+                    <div class="roadmap-tags">
+                        <span class="roadmap-tag" style="background: rgba(5, 126, 187, 0.1); color: #057EBB;">Remote Access</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roadmap-item" onclick="showRoadmapDetail(4)">
+                <div class="timeline-marker" style="background: #3a8be4;">
+                    <div class="pulse-ring" style="animation-delay: 1.5s;"></div>
+                </div>
+                <div class="roadmap-content">
+                    <div class="roadmap-header">
+                        <span class="roadmap-phase">Phase 4</span>
+                       
+                    </div>
+                    <h4> Youth Innovation and Entrepreneurship</h4>
+                    <p>The program will encourage students to create their own tech projects and startups. There will be hackathons, innovation camps, and startup training. This will help young people become digital leaders and entrepreneurs.</p>
+                    <div class="roadmap-tags">
+                        <span class="roadmap-tag" style="background: rgba(42, 123, 212, 0.1); color: #2a7bd4;">Startup Mindset</span>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROMOTION STRATEGIES - MODERN CARDS -->
+    <div style="background: white; border-radius: 24px; padding: 40px; box-shadow: 0 15px 50px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.05); margin-bottom: 40px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 40px; flex-wrap: wrap; gap: 20px;">
+            <div>
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px;">
+                    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #1a6bc4, #2a7bd4); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.3rem;">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h3 style="color: #333; margin: 0; font-size: 1.8rem; font-weight: 700;">Amplifying Reach</h3>
+                </div>
+                <p style="color: #666; max-width: 600px;">Innovative strategies to promote IAMtheCODE across the MORMS community and beyond</p>
+            </div>
+            <button onclick="showAllStrategies()" class="modern-btn secondary" style="display: flex; align-items: center; gap: 10px;">
+             
+            </button>
+        </div>
+
+        <!-- PROMOTION CARDS GRID -->
+        <div class="promotion-grid">
+            <div class="promo-card-modern" onclick="showStrategyModal(1)">
+                <div class="promo-icon" style="background: linear-gradient(135deg, #057EBB, #1a6bc4);">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h4>Student Ambassador Program</h4>
+                <p>Empower completers to become program advocates and peer mentors</p>
+                <div class="promo-stats">
+                 
+                    <span><i class="fas fa-calendar"></i> Monthly Training</span>
+                </div>
+            </div>
+
+            <div class="promo-card-modern" onclick="showStrategyModal(2)">
+                <div class="promo-icon" style="background: linear-gradient(135deg, #1a6bc4, #2a7bd4);">
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <h4>Digital Showcases</h4>
+                <p>Virtual demo days, live coding streams, and project galleries</p>
+                <div class="promo-stats">
+                    
+                </div>
+            </div>
+
+            <div class="promo-card-modern" onclick="showStrategyModal(3)">
+                <div class="promo-icon" style="background: linear-gradient(135deg, #2a7bd4, #3a8be4);">
+                    <i class="fas fa-hands-helping"></i>
+                </div>
+                <h4>Community Partnerships</h4>
+                <p>Collaborate with local tech companies, universities, and organizations</p>
+                <div class="promo-stats">
+                    <span><i class="fas fa-handshake"></i> 5+ Partners</span>
+                    <span><i class="fas fa-network-wired"></i> Networking</span>
+                </div>
+            </div>
+
+            <div class="promo-card-modern" onclick="showStrategyModal(4)">
+                <div class="promo-icon" style="background: linear-gradient(135deg, #3a8be4, #4a9bf4);">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h4>Digital Badging System</h4>
+                <p>Micro-credentials for skills mastery and project completion</p>
+                <div class="promo-stats">
+                    <span><i class="fas fa-medal"></i> Skill Badges</span>
+                    <span><i class="fas fa-trophy"></i> Recognition</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CALL TO ACTION - MODERN DESIGN -->
+    <div style="background: linear-gradient(135deg, #057EBB 0%, #1a6bc4 100%); border-radius: 24px; padding: 60px 40px; position: relative; overflow: hidden;">
+        <!-- BACKGROUND ELEMENTS -->
+        <div style="position: absolute; top: -100px; right: -100px; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -50px; left: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.05); border-radius: 50%;"></div>
+        
+        <div style="position: relative; z-index: 2; max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2 style="color: white; font-size: 2.5rem; margin: 0 0 20px; font-weight: 700;">
+                Join the <span style="color: #FFD700;">Digital Revolution</span>
+            </h2>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem; line-height: 1.6; margin-bottom: 40px;">
+                Be part of MORMS' journey to become a center of digital excellence. 
+                Whether you code, mentor, or support - every contribution matters.
+            </p>
+            
+            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <button onclick="showVolunteerModal()" class="modern-btn primary">
+                    <i class="fas fa-hand-rock"></i> Become a Mentor
+                </button>
+                <button onclick="showPartnerModal()" class="modern-btn secondary-light">
+                    <i class="fas fa-handshake"></i> Partner With Us
+                </button>
+                <button onclick="shareModern()" class="modern-btn ghost">
+                    <i class="fas fa-share-alt"></i> Share the Vision
+                </button>
+            </div>
+            
+            <!-- QUICK CONTACT -->
+            <div style="display: flex; justify-content: center; gap: 30px; margin-top: 50px; flex-wrap: wrap;">
+                <div style="text-align: center;">
+                    <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; backdrop-filter: blur(10px);">
+                        <i class="fas fa-envelope" style="color: white;"></i>
+                    </div>
+                    <div style="color: white; font-weight: 600;">iamthecode@morms.edu.ph</div>
+                </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL CONTAINER -->
+<div id="strategyModal" class="modern-modal-overlay">
+    <div class="modern-modal">
+        <div class="modal-header">
+            <h3 id="modalTitle">Strategy Details</h3>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <!-- Modal content will be inserted here -->
+        </div>
+    </div>
+</div>
+
 
                 
                 
@@ -6694,13 +7339,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 // Fixed Ratio Slider Variables
-let fixedIndex = 0;
-const fixedSlides = document.querySelectorAll('.fixed-slide');
-const fixedThumbs = document.querySelectorAll('.fixed-thumb');
-const fixedIndicators = document.querySelectorAll('.fixed-indicator');
-const totalFixed = fixedSlides.length;
-
-// Fixed Ratio Slider Data
 
 
 // Fixed Ratio Slider Functions
@@ -7157,121 +7795,7 @@ if (typeof toggleTanimArticle === 'undefined') {
 }
 
 // Facts data
-const factsData = [
-    "🌿 <strong>Nature Campus:</strong> 70% of our school grounds are green spaces with gardens and trees!",
-    "💻 <strong>Tech Gardeners:</strong> Our coding students also help maintain the school garden!",
-    "🥗 <strong>Farm to Table:</strong> Vegetables from our garden go straight to student meals!",
-    "👥 <strong>Community Hub:</strong> Every student participates in at least 2 green initiatives!",
-    "🎯 <strong>Triple Threat:</strong> MORMS combines coding, gardening, and eco-practices!",
-    "🌟 <strong>Hidden Gem:</strong> We have a secret herb garden used for cooking classes!",
-    "📈 <strong>Growing Fast:</strong> Our garden produces 50+ kg of vegetables monthly!",
-    "🤝 <strong>Team Spirit:</strong> Students, teachers, and parents all garden together!"
-];
 
-function revealFact(cardElement, factNumber) {
-    const hiddenText = cardElement.querySelector('.fact-hidden');
-    const icon = cardElement.querySelector('.fact-icon');
-    const title = cardElement.querySelector('h3');
-    
-    // Get random fact (different from current)
-    let randomFact;
-    do {
-        randomFact = factsData[Math.floor(Math.random() * factsData.length)];
-    } while (hiddenText.innerHTML.includes(randomFact));
-    
-    // Animate
-    cardElement.style.transform = 'scale(0.95)';
-    cardElement.style.boxShadow = '0 15px 35px rgba(0,0,0,0.2)';
-    cardElement.style.background = 'linear-gradient(135deg, #f8f9fa, #ffffff)';
-    
-    // Change content
-    setTimeout(() => {
-        hiddenText.innerHTML = randomFact;
-        hiddenText.style.opacity = '1';
-        hiddenText.style.transform = 'translateY(0)';
-        
-        title.style.opacity = '0.5';
-        title.innerHTML = 'Discovered!';
-        icon.style.transform = 'rotate(360deg)';
-        icon.style.transition = 'transform 0.8s ease';
-        
-        // Play sound effect (optional)
-        playTapSound();
-    }, 200);
-    
-    setTimeout(() => {
-        cardElement.style.transform = 'scale(1)';
-    }, 400);
-}
-
-function resetAllFacts() {
-    const cards = document.querySelectorAll('.fact-card');
-    cards.forEach(card => {
-        const hiddenText = card.querySelector('.fact-hidden');
-        const title = card.querySelector('h3');
-        const icon = card.querySelector('.fact-icon');
-        
-        card.style.background = 'white';
-        card.style.boxShadow = '0 8px 25px rgba(0,0,0,0.1)';
-        
-        hiddenText.style.opacity = '0';
-        hiddenText.style.transform = 'translateY(20px)';
-        hiddenText.innerHTML = '';
-        
-        title.style.opacity = '1';
-        title.innerHTML = 'Tap Me!';
-        
-        icon.style.transform = 'rotate(0deg)';
-    });
-    
-    // Play reset sound
-    playResetSound();
-}
-
-function playTapSound() {
-    // Simple sound effect using Web Audio API
-    try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        oscillator.frequency.value = 523.25; // C5
-        oscillator.type = 'sine';
-        
-        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-        
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.3);
-    } catch (e) {
-        console.log("Audio not supported");
-    }
-}
-
-function playResetSound() {
-    try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        oscillator.frequency.value = 261.63; // C4
-        oscillator.type = 'triangle';
-        
-        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
-        
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.5);
-    } catch (e) {
-        console.log("Audio not supported");
-    }
-}
 
 const gardenImages = {
     image1: {
@@ -7326,49 +7850,8 @@ const gardenImages = {
     }
 };
 
-function openImageModal(imageId) {
-    const image = gardenImages[imageId];
-    if (!image) return;
-    
-    const modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const imageCaption = document.getElementById('imageCaption');
-    
-    modalImage.src = image.src;
-    modalImage.alt = image.title;
-    imageCaption.innerHTML = `<strong>${image.title}</strong><br>${image.description}`;
-    
-    modal.style.display = 'flex';
-    
-    // Play click sound
-    playClickSound();
-}
 
-function closeImageModal() {
-    document.getElementById('imageModal').style.display = 'none';
-}
-
-function playClickSound() {
-    try {
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const oscillator = audioContext.createOscillator();
-        const gainNode = audioContext.createGain();
-        
-        oscillator.connect(gainNode);
-        gainNode.connect(audioContext.destination);
-        
-        oscillator.frequency.value = 523.25; // C5
-        oscillator.type = 'sine';
-        
-        gainNode.gain.setValueAtTime(0.2, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
-        
-        oscillator.start(audioContext.currentTime);
-        oscillator.stop(audioContext.currentTime + 0.2);
-    } catch (e) {
-        // Audio not supported
-    }
-}
+ 
 
 // Initialize gallery
 document.addEventListener('DOMContentLoaded', function() {
@@ -8067,6 +8550,8 @@ function startAutoDemo() {
     }, 3000);
 }
 
+
+
 // 11. INITIALIZATION FUNCTION
 // ============================
 function initializeGardenGallery() {
@@ -8569,220 +9054,10 @@ function showRelatedStory(storyNumber) {
     });
 }
 
-// Add hover effects to related stories
-document.addEventListener('DOMContentLoaded', function() {
-    const relatedStories = document.querySelectorAll('.related-story');
-    
-    relatedStories.forEach(story => {
-        story.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 8px 20px rgba(0,0,0,0.12)';
-        });
-        
-        story.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-            this.style.boxShadow = '0 3px 10px rgba(0,0,0,0.08)';
-        });
-    });
-    
-    // Add newspaper fold effect
-    const newspaperSection = document.querySelector('.newspaper-content');
-    if (newspaperSection) {
-        newspaperSection.style.position = 'relative';
-        
-        // Add subtle paper texture
-        newspaperSection.style.backgroundImage = `
-            linear-gradient(90deg, transparent 49px, rgba(5, 126, 187, 0.05) 49px, transparent 50px),
-            linear-gradient(#f5f5f5 1px, transparent 1px)
-        `;
-        newspaperSection.style.backgroundSize = '50px 50px, 100% 1.8em';
-    }
-});
-
-// Newspaper CSS
-const newspaperStyle = document.createElement('style');
-newspaperStyle.textContent = `
-    @media (max-width: 768px) {
-        .newspaper-content {
-            column-count: 1 !important;
-            padding: 20px !important;
-        }
-        
-        h1 {
-            font-size: 2rem !important;
-        }
-    }
-    
-    /* Newspaper column breaks */
-    .newspaper-content p {
-        text-align: justify;
-        margin-bottom: 1.5em;
-        orphans: 3;
-        widows: 3;
-    }
-    
-    /* Drop cap styling */
-    .newspaper-content p:first-of-type::first-letter {
-        float: left;
-        font-size: 4.5rem;
-        line-height: 0.8;
-        padding: 0 15px 5px 0;
-        color: var(--code-color);
-        font-weight: bold;
-        font-family: 'Times New Roman', serif;
-    }
-    
-    /* Newspaper-like text shadow */
-    .newspaper-content {
-        text-shadow: 0.5px 0.5px 0.5px rgba(0,0,0,0.1);
-    }
-    
-    /* Newspaper fold effect */
-    .modern-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
-        width: 1px;
-        height: 100%;
-        background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1), transparent);
-        z-index: 1;
-    }
-    
-    /* Print styles */
-    @media print {
-        .modern-section {
-            box-shadow: none !important;
-            border: 1px solid #ccc !important;
-        }
-        
-        button {
-            display: none !important;
-        }
-    }
-`;
-document.head.appendChild(newspaperStyle);
 
 
 
 
-// Interactive functions for waste segregation guide
-let currentDetails = null;
-
-function showDetails(pictureNumber) {
-    // Remove active class from all examples
-    document.querySelectorAll('.waste-example').forEach(example => {
-        example.style.transform = 'translateY(0)';
-        example.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-    });
-    
-    // Add active effect to clicked example
-    const clickedExample = event.currentTarget;
-    clickedExample.style.transform = 'translateY(-5px)';
-    clickedExample.style.boxShadow = '0 15px 30px rgba(0,0,0,0.15)';
-    
-    currentDetails = pictureNumber;
-    
-    // Show quick info popup
-    const messages = [
-        "Great choice! Color-coded bins make waste segregation easy for everyone.",
-        "Perfect! Separating biodegradable and non-biodegradable helps the environment.",
-        "Excellent! Creative reuse turns waste into beautiful, useful items."
-    ];
-    
-    Swal.fire({
-        title: 'Good Choice!',
-        text: messages[pictureNumber - 1],
-        icon: 'success',
-        confirmButtonColor: 'var(--basura-color)',
-        timer: 2000,
-        timerProgressBar: true
-    });
-}
-
-function learnMore(pictureNumber) {
-    event.stopPropagation();
-    
-    const details = [
-        {
-            title: "Color-Coded Waste Bins",
-            content: `
-                <div style="text-align: left; line-height: 1.6;">
-                    <h4 style="color: #4CAF50; margin-bottom: 15px;">How it works:</h4>
-                    <p>Each color represents a specific type of waste:</p>
-                    <ul>
-                        <li><strong>🟥 Red:</strong> Special waste (batteries, electronics, chemicals)</li>
-                        <li><strong>🟨 Yellow:</strong> Plastics only (bottles, containers, wrappers)</li>
-                        <li><strong>🟦 Blue:</strong> Paper and cardboard (newspapers, boxes)</li>
-                        <li><strong>🟩 Green:</strong> General non-recyclable waste</li>
-                    </ul>
-                    <p style="margin-top: 15px;"><strong>Tip:</strong> Always check local guidelines as colors may vary.</p>
-                </div>
-            `
-        },
-        {
-            title: "Biodegradable vs Non-Biodegradable",
-            content: `
-                <div style="text-align: left; line-height: 1.6;">
-                    <h4 style="color: #8BC34A; margin-bottom: 15px;">Easy to Remember:</h4>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
-                        <div style="background: #e8f5e9; padding: 15px; border-radius: 8px;">
-                            <h5 style="margin: 0 0 10px 0; color: #4CAF50;">NABUBULOK Examples:</h5>
-                            <ul style="margin: 0; color: #666;">
-                                <li>Fruit and vegetable scraps</li>
-                                <li>Eggshells and coffee grounds</li>
-                                <li>Paper without plastic coating</li>
-                                <li>Leaves and grass clippings</li>
-                            </ul>
-                        </div>
-                        <div style="background: #ffebee; padding: 15px; border-radius: 8px;">
-                            <h5 style="margin: 0 0 10px 0; color: #F44336;">DI-NABUBULOK Examples:</h5>
-                            <ul style="margin: 0; color: #666;">
-                                <li>Plastic bags and wrappers</li>
-                                <li>Metal cans and foils</li>
-                                <li>Glass bottles and jars</li>
-                                <li>Styrofoam and rubber</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <p><strong>Remember:</strong> Biodegradable waste can become compost for plants!</p>
-                </div>
-            `
-        },
-        {
-            title: "Creative Reuse Projects",
-            content: `
-                <div style="text-align: left; line-height: 1.6;">
-                    <h4 style="color: #795548; margin-bottom: 15px;">More Creative Ideas:</h4>
-                    
-                    <div style="margin: 20px 0;">
-                        <h5 style="color: #795548; margin-bottom: 10px;">🎨 What you can make from waste:</h5>
-                        <ul>
-                            <li><strong>Plastic bottles:</strong> Planters, pencil holders, bird feeders</li>
-                            <li><strong>Old tires:</strong> Swings, planters, outdoor furniture</li>
-                            <li><strong>Cardboard:</strong> Storage boxes, organizers, crafts</li>
-                            <li><strong>Glass jars:</strong> Vases, storage containers, lanterns</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background: #efebe9; padding: 15px; border-radius: 8px; margin-top: 20px;">
-                        <p style="margin: 0; color: #795548;"><strong>💡 Tip:</strong> Always clean and prepare materials before reusing them!</p>
-                    </div>
-                </div>
-            `
-        }
-    ];
-    
-    Swal.fire({
-        title: details[pictureNumber - 1].title,
-        html: details[pictureNumber - 1].content,
-        confirmButtonColor: 'var(--basura-color)',
-        confirmButtonText: 'Got it!',
-        width: '600px'
-    });
-}
 
 // Quiz functionality
 const correctAnswers = {
@@ -8831,7 +9106,7 @@ function resetQuiz() {
 
 function shareYourSetup() {
     Swal.fire({
-        title: 'Share Your Setup',
+        title: 'Share Your Setup', 
         html: `
             <div style="text-align: left;">
                 <p style="margin-bottom: 15px;">We'd love to see how you practice waste segregation!</p>
@@ -9044,13 +9319,787 @@ gardenStyle.textContent = `
     }
 `;
 document.head.appendChild(gardenStyle);
-</script>
+// STRATEGY MODAL DATA
+const strategyModals = {
+    1: {
+        title: "Student Ambassador Program",
+        content: `
+            <div style="line-height: 1.6;">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <div style="width: 60px; height: 60px; background: linear-gradient(135deg, #057EBB, #1a6bc4); border-radius: 16px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div>
+                        <h4 style="margin: 0; color: #333;">Empowering Leaders</h4>
+                        <p style="margin: 5px 0 0; color: #666; font-size: 0.95rem;">Peer-to-peer advocacy program</p>
+                    </div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px;">
+                        <div style="font-size: 2rem; color: #057EBB; margin-bottom: 10px;">📚</div>
+                        <h5 style="margin: 0 0 10px; color: #333;">Training Curriculum</h5>
+                        <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 0.9rem;">
+                            <li>Public speaking workshops</li>
+                            <li>Basic mentorship training</li>
+                            <li>Program knowledge base</li>
+                        </ul>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px;">
+                        <div style="font-size: 2rem; color: #1a6bc4; margin-bottom: 10px;">🎯</div>
+                        <h5 style="margin: 0 0 10px; color: #333;">Responsibilities</h5>
+                        <ul style="margin: 0; padding-left: 20px; color: #666; font-size: 0.9rem;">
+                            <li>Classroom presentations</li>
+                            <li>New student onboarding</li>
+                            <li>Social media advocacy</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, rgba(5, 126, 187, 0.1), rgba(26, 107, 196, 0.1)); padding: 20px; border-radius: 12px; margin-top: 20px;">
+                    <h5 style="margin: 0 0 10px; color: #057EBB;">Key Benefits:</h5>
+                    <p style="margin: 0; color: #666;">
+                        • Leadership development opportunities<br>
+                        • Public speaking experience<br>
+                        • Enhanced resume credentials<br>
+                        • Community recognition
+                    </p>
+                </div>
+            </div>
+        `
+    },
+    2: {
+        title: "Digital Showcases",
+        content: `
+            <div style="line-height: 1.6;">
+                <div style="margin-bottom: 30px;">
+                    <h4 style="color: #333; margin-bottom: 15px;">Virtual Showcase Events</h4>
+                    <p style="color: #666; margin-bottom: 20px;">Leverage digital platforms to amplify student achievements and program visibility.</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                        <div style="text-align: center; padding: 15px; background: #f8fafc; border-radius: 12px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">📱</div>
+                            <div style="font-weight: 600; color: #333;">Live Coding Streams</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: #f8fafc; border-radius: 12px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🎥</div>
+                            <div style="font-weight: 600; color: #333;">Project Demos</div>
+                        </div>
+                        <div style="text-align: center; padding: 15px; background: #f8fafc; border-radius: 12px;">
+                            <div style="font-size: 2rem; margin-bottom: 10px;">🏆</div>
+                            <div style="font-weight: 600; color: #333;">Award Ceremonies</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    3: {
+        title: "Community Partnerships",
+        content: `
+            <div style="line-height: 1.6;">
+                <p style="color: #666; margin-bottom: 25px;">Building sustainable relationships with tech industry leaders and educational institutions.</p>
+                
+                <div style="background: #f8fafc; padding: 25px; border-radius: 16px; margin-bottom: 25px;">
+                    <h5 style="color: #333; margin: 0 0 15px;">Partnership Tiers:</h5>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 12px;">
+                            <div style="color: #057EBB; font-weight: 600; margin-bottom: 8px;">Bronze</div>
+                            <div style="font-size: 0.9rem; color: #666;">Guest speakers, site visits</div>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 12px;">
+                            <div style="color: #1a6bc4; font-weight: 600; margin-bottom: 8px;">Silver</div>
+                            <div style="font-size: 0.9rem; color: #666;">Internships, equipment donation</div>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 12px;">
+                            <div style="color: #2a7bd4; font-weight: 600; margin-bottom: 8px;">Gold</div>
+                            <div style="font-size: 0.9rem; color: #666;">Sponsored projects, mentorship</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    4: {
+        title: "Digital Badging System",
+        content: `
+            <div style="line-height: 1.6;">
+                <p style="color: #666; margin-bottom: 25px;">Recognize and validate student achievements through a modern digital credentialing system.</p>
+                
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 25px;">
+                    <div style="background: linear-gradient(135deg, #057EBB, #1a6bc4); color: white; padding: 10px 20px; border-radius: 20px; font-weight: 600;">
+                        <i class="fas fa-code"></i> HTML/CSS Expert
+                    </div>
+                    <div style="background: linear-gradient(135deg, #1a6bc4, #2a7bd4); color: white; padding: 10px 20px; border-radius: 20px; font-weight: 600;">
+                        <i class="fas fa-python"></i> Python Basics
+                    </div>
+                    <div style="background: linear-gradient(135deg, #2a7bd4, #3a8be4); color: white; padding: 10px 20px; border-radius: 20px; font-weight: 600;">
+                        <i class="fas fa-project-diagram"></i> Project Leader
+                    </div>
+                </div>
+                
+                <div style="background: rgba(5, 126, 187, 0.05); padding: 20px; border-radius: 12px;">
+                    <h5 style="color: #333; margin: 0 0 10px;">Benefits:</h5>
+                    <ul style="margin: 0; color: #666; padding-left: 20px;">
+                        <li>Verifiable digital credentials</li>
+                        <li>Shareable on LinkedIn and portfolios</li>
+                        <li>Motivational achievement tracking</li>
+                        <li>Industry-recognized skills validation</li>
+                    </ul>
+                </div>
+            </div>
+        `
+    }
+};
 
-</script>
+// ROADMAP DETAILS
+const roadmapDetails = {
+    1: {
+        title: "Phase 1: Infrastructure & Expansion",
+        details: `
+            <div style="line-height: 1.6;">
+                <h4 style="color: #333; margin-bottom: 20px;">Key Initiatives:</h4>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px;">
+                        <div style="font-size: 2.5rem; color: #057EBB; margin-bottom: 15px;">💻</div>
+                        <h5 style="margin: 0 0 10px; color: #333;">Lab Upgrade</h5>
+                        <p style="margin: 0; color: #666; font-size: 0.9rem;">20 new workstations with development software</p>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px;">
+                        <div style="font-size: 2.5rem; color: #057EBB; margin-bottom: 15px;">👥</div>
+                        <h5 style="margin: 0 0 10px; color: #333;">Student Capacity</h5>
+                        <p style="margin: 0; color: #666; font-size: 0.9rem;">Increase from 60 to 120+ participants</p>
+                    </div>
+                    
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px;">
+                        <div style="font-size: 2.5rem; color: #057EBB; margin-bottom: 15px;">📚</div>
+                        <h5 style="margin: 0 0 10px; color: #333;">Curriculum</h5>
+                        <p style="margin: 0; color: #666; font-size: 0.9rem;">Launch advanced Python & Web Dev tracks</p>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    2: {
+        title: "Phase 2: Industry Integration",
+        details: `
+            <div style="line-height: 1.6;">
+                <h4 style="color: #333; margin-bottom: 20px;">Building Bridges to Industry:</h4>
+                
+                <div style="background: linear-gradient(135deg, rgba(5, 126, 187, 0.05), rgba(26, 107, 196, 0.05)); padding: 25px; border-radius: 16px; margin-bottom: 25px;">
+                    <h5 style="color: #333; margin: 0 0 15px;">Partnership Goals:</h5>
+                    <ul style="margin: 0; color: #666; padding-left: 20px;">
+                        <li>Establish 5+ tech company partnerships</li>
+                        <li>Create internship opportunities for top students</li>
+                        <li>Industry-led workshops and hackathons</li>
+                        <li>Career pathway guidance sessions</li>
+                    </ul>
+                </div>
+            </div>
+        `
+    },
+    3: {
+        title: "Phase 3: Competition & Excellence",
+        details: `
+            <div style="line-height: 1.6;">
+                <h4 style="color: #333; margin-bottom: 20px;">Fostering Excellence Through Competition:</h4>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 25px;">
+                    <div style="text-align: center; padding: 20px; background: #f8fafc; border-radius: 12px;">
+                        <div style="font-size: 2rem; color: #057EBB; margin-bottom: 10px;">🏆</div>
+                        <div style="font-weight: 600; color: #333;">MORMS Coding League</div>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: #f8fafc; border-radius: 12px;">
+                        <div style="font-size: 2rem; color: #057EBB; margin-bottom: 10px;">🌐</div>
+                        <div style="font-weight: 600; color: #333;">National Competitions</div>
+                    </div>
+                    <div style="text-align: center; padding: 20px; background: #f8fafc; border-radius: 12px;">
+                        <div style="font-size: 2rem; color: #057EBB; margin-bottom: 10px;">🎖️</div>
+                        <div style="font-weight: 600; color: #333;">Award System</div>
+                    </div>
+                </div>
+            </div>
+        `
+    },
+    4: {
+        title: "Phase 4: Sustainability & Legacy",
+        details: `
+            <div style="line-height: 1.6;">
+                <h4 style="color: #333; margin-bottom: 20px;">Building Lasting Impact:</h4>
+                
+                <div style="background: rgba(5, 126, 187, 0.05); padding: 25px; border-radius: 16px;">
+                    <h5 style="color: #333; margin: 0 0 15px;">Sustainability Framework:</h5>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                        <div style="background: white; padding: 15px; border-radius: 12px;">
+                            <div style="color: #057EBB; font-weight: 600; margin-bottom: 8px;">Alumni Network</div>
+                            <div style="font-size: 0.9rem; color: #666;">Mentorship and career support</div>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 12px;">
+                            <div style="color: #1a6bc4; font-weight: 600; margin-bottom: 8px;">Funding Model</div>
+                            <div style="font-size: 0.9rem; color: #666;">Sustainable financial planning</div>
+                        </div>
+                        <div style="background: white; padding: 15px; border-radius: 12px;">
+                            <div style="color: #2a7bd4; font-weight: 600; margin-bottom: 8px;">Knowledge Transfer</div>
+                            <div style="font-size: 0.9rem; color: #666;">Documentation and training systems</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+};
+
+// MODAL FUNCTIONS
+function showStrategyModal(strategyId) {
+    const modal = document.getElementById('strategyModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    
+    if (strategyModals[strategyId]) {
+        modalTitle.textContent = strategyModals[strategyId].title;
+        modalBody.innerHTML = strategyModals[strategyId].content;
+        modal.style.display = 'flex';
+        
+        // Add animation class
+        modalBody.style.animation = 'none';
+        setTimeout(() => {
+            modalBody.style.animation = 'fadeIn 0.5s ease';
+        }, 10);
+    }
+}
+
+function showRoadmapDetail(phaseId) {
+    const modal = document.getElementById('strategyModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    
+    if (roadmapDetails[phaseId]) {
+        modalTitle.textContent = roadmapDetails[phaseId].title;
+        modalBody.innerHTML = roadmapDetails[phaseId].details;
+        modal.style.display = 'flex';
+    }
+}
+
+function closeModal() {
+    document.getElementById('strategyModal').style.display = 'none';
+}
+
+function showAllStrategies() {
+    const modal = document.getElementById('strategyModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    
+    modalTitle.textContent = "All Promotion Strategies";
+    modalBody.innerHTML = `
+        <div style="line-height: 1.6;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                ${Object.entries(strategyModals).map(([id, strategy]) => `
+                    <div style="background: #f8fafc; padding: 20px; border-radius: 12px; cursor: pointer;" onclick="showStrategyModal(${id})">
+                        <h4 style="margin: 0 0 10px; color: #333;">${strategy.title}</h4>
+                        <p style="margin: 0; color: #666; font-size: 0.9rem;">Click to view details</p>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+    modal.style.display = 'flex';
+}
+
+function showVolunteerModal() {
+    const modal = document.getElementById('strategyModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    
+    modalTitle.textContent = "Become a Coding Mentor";
+    modalBody.innerHTML = `
+        <div style="line-height: 1.6;">
+            <div style="background: linear-gradient(135deg, rgba(5, 126, 187, 0.1), rgba(26, 107, 196, 0.1)); padding: 30px; border-radius: 16px; margin-bottom: 25px;">
+                <h4 style="color: #333; margin: 0 0 15px;">Transform Lives Through Code</h4>
+                <p style="color: #666; margin: 0;">Join our network of mentors and help shape the next generation of digital creators.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 2.5rem; color: #057EBB; margin-bottom: 15px;">⏱️</div>
+                    <div style="font-weight: 600; color: #333;">2-4 hours/week</div>
+                    <div style="color: #666; font-size: 0.9rem;">Flexible commitment</div>
+                </div>
+                
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 2.5rem; color: #057EBB; margin-bottom: 15px;">🎓</div>
+                    <div style="font-weight: 600; color: #333;">Training Provided</div>
+                    <div style="color: #666; font-size: 0.9rem;">No prior teaching experience needed</div>
+                </div>
+                
+                <div style="text-align: center; padding: 20px;">
+                    <div style="font-size: 2.5rem; color: #057EBB; margin-bottom: 15px;">🤝</div>
+                    <div style="font-weight: 600; color: #333;">Community</div>
+                    <div style="color: #666; font-size: 0.9rem;">Network of passionate mentors</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <button onclick="window.location.href='mailto:mentors@morms.edu.ph'" class="modern-btn primary" style="margin: 0 auto;">
+                    <i class="fas fa-envelope"></i> Apply Now
+                </button>
+            </div>
+        </div>
+    `;
+    modal.style.display = 'flex';
+}
+
+function showPartnerModal() {
+    const modal = document.getElementById('strategyModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    
+    modalTitle.textContent = "Become a Partner";
+    modalBody.innerHTML = `
+        <div style="line-height: 1.6;">
+            <div style="margin-bottom: 30px;">
+                <h4 style="color: #333; margin-bottom: 15px;">Partnership Opportunities</h4>
+                <p style="color: #666;">Collaborate with MORMS to build digital literacy and create talent pipelines.</p>
+            </div>
+            
+            <div style="background: #f8fafc; padding: 25px; border-radius: 16px; margin-bottom: 25px;">
+                <h5 style="color: #333; margin: 0 0 15px;">Partnership Benefits:</h5>
+                <ul style="margin: 0; color: #666; padding-left: 20px;">
+                    <li><strong>Early Talent Access:</strong> Connect with motivated young programmers</li>
+                    <li><strong>CSR Impact:</strong> Fulfill corporate social responsibility goals</li>
+                    <li><strong>Brand Visibility:</strong> Recognition as education partner</li>
+                    <li><strong>Industry Input:</strong> Shape curriculum to meet industry needs</li>
+                </ul>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button onclick="window.location.href='mailto:partnerships@morms.edu.ph'" class="modern-btn primary">
+                    <i class="fas fa-handshake"></i> Start Partnership Conversation
+                </button>
+            </div>
+        </div>
+    `;
+    modal.style.display = 'flex';
+}
+
+function shareModern() {
+    const shareData = {
+        title: 'IAMtheCODE Future Plans at MORMS',
+        text: 'Check out the exciting future plans for the IAMtheCODE program at Marcial O. Rañola Memorial School!',
+        url: window.location.href
+    };
+    
+    if (navigator.share && navigator.canShare(shareData)) {
+        navigator.share(shareData);
+    } else {
+        // Fallback
+        navigator.clipboard.writeText(`${shareData.text}\n\n${shareData.url}`);
+        Swal.fire({
+            title: 'Copied to Clipboard!',
+            text: 'Share the future vision of IAMtheCODE with others!',
+            icon: 'success',
+            confirmButtonColor: '#057EBB',
+            timer: 2000
+        });
+    }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('strategyModal');
+    const modalContent = document.querySelector('.modern-modal');
+    
+    if (modal.style.display === 'flex' && !modalContent.contains(event.target)) {
+        closeModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// Add animation styles
+const animationStyles = document.createElement('style');
+animationStyles.textContent = `
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    /* Hover effects */
+    .promo-card-modern, .roadmap-item, .modern-btn {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Smooth scrolling */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Loading animation */
+    @keyframes shimmer {
+        0% { background-position: -200px 0; }
+        100% { background-position: 200px 0; }
+    }
+    
+    .loading-shimmer {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200px 100%;
+        animation: shimmer 1.5s infinite;
+    }
+`;
+document.head.appendChild(animationStyles);
+// PERFORMANCE OPTIMIZATIONS
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. DEBOUNCE SCROLL HANDLERS
+    let scrollTimeout;
+    const debounceScroll = (func, wait = 50) => {
+        return function executedFunction(...args) {
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                func.apply(this, args);
+                scrollTimeout = null;
+            }, wait);
+        };
+    };
+
+    // 2. OPTIMIZE ANIMATIONS
+    function optimizeAnimations() {
+        // Reduce animation complexity for low-end devices
+        const isLowEndDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+                              (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+        
+        if (isLowEndDevice) {
+            // Simplify animations on mobile/low-end
+            document.querySelectorAll('.floating-element, .floating-card, .gallery-track').forEach(el => {
+                el.style.animationPlayState = 'paused';
+            });
+            
+            // Reduce shadow complexity
+            document.querySelectorAll('*').forEach(el => {
+                if (el.style.boxShadow && el.style.boxShadow.includes('rgba')) {
+                    el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+                }
+            });
+        }
+    }
+
+    // 3. LAZY LOAD IMAGES
+    function lazyLoadImages() {
+        const images = document.querySelectorAll('img:not([data-loaded])');
+        
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        img.setAttribute('data-loaded', 'true');
+                    }
+                    observer.unobserve(img);
+                }
+            });
+        }, { rootMargin: '50px' });
+        
+        images.forEach(img => {
+            if (!img.src || img.src.includes('data:')) {
+                img.dataset.src = img.getAttribute('src') || '';
+                img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1"%3E%3C/svg%3E';
+                imageObserver.observe(img);
+            }
+        });
+    }
+
+    // 4. THROTTLE RESIZE EVENTS
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        if (resizeTimeout) clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(optimizeAnimations, 250);
+    });
+
+    // 5. OPTIMIZE GALLERY
+    function optimizeGallery() {
+        const gallery = document.querySelector('.gallery-track');
+        if (!gallery) return;
+        
+        // Pause gallery animation when not in viewport
+        const galleryObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    gallery.style.animationPlayState = 'running';
+                } else {
+                    gallery.style.animationPlayState = 'paused';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        if (gallery) galleryObserver.observe(gallery);
+        
+        // Simplify gallery animation for smoother scrolling
+        gallery.style.willChange = 'transform';
+        gallery.style.backfaceVisibility = 'hidden';
+    }
+
+    // 6. MEMORY OPTIMIZATION
+    function cleanupEventListeners() {
+        // Store references to avoid memory leaks
+        const allButtons = document.querySelectorAll('button');
+        const allCards = document.querySelectorAll('.card, .floating-card');
+        
+        // Use passive event listeners for better scrolling
+        document.addEventListener('touchstart', null, { passive: true });
+        document.addEventListener('wheel', null, { passive: true });
+    }
+
+    // 7. INITIALIZE WITH DELAYED LOADING
+    function initializeWithPriority() {
+        // Immediate critical functions
+        optimizeAnimations();
+        cleanupEventListeners();
+        
+        // Delayed non-critical functions
+        setTimeout(() => {
+            lazyLoadImages();
+            optimizeGallery();
+        }, 1000);
+        
+        // Progressive loading of heavy sections
+        setTimeout(() => {
+            initTanimAnimations();
+            initFullArticlesSection();
+        }, 1500);
+    }
+
+    // 8. FPS MONITOR (Optional - for debugging)
+    function monitorFPS() {
+        let frameCount = 0;
+        let lastTime = performance.now();
+        let fps = 60;
+        
+        function checkFPS() {
+            frameCount++;
+            const currentTime = performance.now();
+            if (currentTime - lastTime >= 1000) {
+                fps = Math.round((frameCount * 1000) / (currentTime - lastTime));
+                frameCount = 0;
+                lastTime = currentTime;
+                
+                // Auto-adjust animations based on FPS
+                if (fps < 30) {
+                    document.querySelectorAll('.floating-element, .gallery-track').forEach(el => {
+                        el.style.animationDuration = '20s';
+                    });
+                }
+            }
+            requestAnimationFrame(checkFPS);
+        }
+        checkFPS();
+    }
+
+    // Initialize everything
+    initializeWithPriority();
+    
+    // Start FPS monitor (optional)
+    // monitorFPS();
+    
+    // Apply optimizations immediately
+    const originalScrollHandler = handleScroll;
+    window.handleScroll = debounceScroll(originalScrollHandler, 100);
+});
+
+// 9. ADD THESE CSS OPTIMIZATIONS TO YOUR EXISTING STYLE BLOCK
+// Add these specific rules to improve performance
+const performanceCSS = `
+/* PERFORMANCE OPTIMIZATIONS */
+* {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Hardware acceleration for animations */
+.floating-element,
+.floating-card,
+.gallery-track,
+.flip-card-inner,
+.modern-modal {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000;
+    will-change: transform, opacity;
+}
+
+/* Simplify animations on mobile */
+@media (max-width: 768px) {
+    .floating-element {
+        display: none;
+    }
+    
+    .floating-card {
+        animation: none !important;
+        transform: none !important;
+    }
+    
+    .gallery-track {
+        animation-duration: 80s !important;
+    }
+}
+
+/* Reduce shadow complexity for better performance */
+.modern-section,
+.card,
+.floating-card,
+.feature-modern {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+}
+
+/* Optimize transitions */
+* {
+    transition-duration: 0.2s !important;
+}
+
+/* Disable animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Optimize images */
+img {
+    max-width: 100%;
+    height: auto;
+    content-visibility: auto;
+}
+
+/* Force GPU rendering for heavy elements */
+.sidebar,
+.main-container,
+header {
+    transform: translateZ(0);
+}
+`;
+
+// Add the performance CSS to the page
+const styleEl = document.createElement('style');
+styleEl.textContent = performanceCSS;
+document.head.appendChild(styleEl);
+
+// 10. SIMPLIFIED ANIMATION INITIALIZATION
+// Replace your complex scroll animation initialization with this simpler version
+function initScrollAnimationsSimple() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('scroll-fade-in-visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    // Only observe visible elements
+    const elements = document.querySelectorAll('.scroll-fade-in:not(.scroll-fade-in-visible)');
+    const limitedElements = Array.from(elements).slice(0, 20); // Limit to 20 at a time
+    
+    limitedElements.forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Call this instead of your current initScrollAnimations
+initScrollAnimationsSimple();
+// Add this to your JavaScript section - REPLACE existing fixed ratio slider code
+let fixedIndex = 0;
+let fixedAutoPlay = null;
+const fixedSlides = document.querySelectorAll('.fixed-slide');
+const fixedThumbs = document.querySelectorAll('.fixed-thumb');
+const totalFixed = fixedSlides.length;
+
+// SIMPLIFIED VERSION - Remove complex data
+function showFixedSlide(index) {
+  // Only update what's visible
+  const currentSlide = document.querySelector('.fixed-slide.active');
+  const targetSlide = fixedSlides[index];
+  
+  if (currentSlide) currentSlide.classList.remove('active');
+  targetSlide.classList.add('active');
+  
+  // Update thumbnails
+  document.querySelectorAll('.fixed-thumb.active').forEach(t => t.classList.remove('active'));
+  fixedThumbs[index].classList.add('active');
+  
+  // Update indicators
+  document.querySelectorAll('.fixed-indicator.active').forEach(i => i.classList.remove('active'));
+  document.querySelectorAll('.fixed-indicator')[index].classList.add('active');
+  
+  // Update counter
+  document.getElementById('fixed-current').textContent = index + 1;
+  fixedIndex = index;
+}
+
+function fixedPrev() {
+  fixedIndex = (fixedIndex - 1 + totalFixed) % totalFixed;
+  showFixedSlide(fixedIndex);
+}
+
+function fixedNext() {
+  fixedIndex = (fixedIndex + 1) % totalFixed;
+  showFixedSlide(fixedIndex);
+}
+
+function fixedGoTo(index) {
+  showFixedSlide(index);
+}
+
+// Stop auto-play on hover
+document.querySelectorAll('.fixed-ratio-container, .fixed-nav-btn').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    if (fixedAutoPlay) clearInterval(fixedAutoPlay);
+  });
+  el.addEventListener('mouseleave', () => {
+    startFixedAutoPlay();
+  });
+});
+
+function startFixedAutoPlay() {
+  if (fixedAutoPlay) clearInterval(fixedAutoPlay);
+  fixedAutoPlay = setInterval(fixedNext, 5000); // Reduced from 3000ms
+}
+
+// Initialize - with delay
+setTimeout(() => {
+  showFixedSlide(0);
+  startFixedAutoPlay();
+}, 1000);
+
+// Make functions global
+window.fixedPrev = fixedPrev;
+window.fixedNext = fixedNext;
+window.fixedGoTo = fixedGoTo;
+// Add this to disable gallery on low-end devices
+if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+  const gallery = document.querySelector('#codeSection .gallery-track');
+  if (gallery) {
+    gallery.style.animation = 'none';
+  }
+}
+
+
 </script>
 
 
 
 </body>
 </html>
-
